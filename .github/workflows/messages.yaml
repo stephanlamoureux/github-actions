@@ -30,6 +30,10 @@ jobs:
     needs: print-working-directory
     runs-on: ubuntu-latest
     steps:
+      - name: Download messages.txt
+        uses: actions/download-artifact@v2
+        with:
+          name: messages
       - name: Print contents of messages.txt
         run: cat messages.txt
 
