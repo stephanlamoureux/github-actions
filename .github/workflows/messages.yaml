@@ -13,6 +13,11 @@ jobs:
     steps:
       - name: add message
         run: echo "Hello $USER." > messages.txt
+      - name: Upload messages.txt
+        uses: actions/upload-artifact@v2
+        with:
+          name: messages
+          path: messages.txt
 
   print-working-directory:
     needs: create-message-file
