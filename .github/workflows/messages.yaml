@@ -14,7 +14,7 @@ jobs:
       - name: add message
         run: echo "Hello $USER." > messages.txt
       - name: Upload messages.txt
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: messages
           path: messages.txt
@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download messages.txt
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: messages
       - name: Print contents of messages.txt
