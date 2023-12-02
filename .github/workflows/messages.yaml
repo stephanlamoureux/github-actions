@@ -1,0 +1,36 @@
+---
+name: Message Workflow
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  create-message-file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: add message
+        run: echo "Hello $USER." > messages.txt
+
+  print-working-directory:
+    needs: create-message-file
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print working dir
+        run: pwd
+
+  print-message-file:
+    needs: print-working-directory
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print contents of messages.txt
+        run: cat messages.txt
+
+  print-custom-message:
+    needs: print-message-file
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo a custom message
+        run: echo "Custom message created with GitHub Actions."
