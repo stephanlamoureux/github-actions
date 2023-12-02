@@ -1,2 +1,2 @@
-# scheduled-workflows
+# github-actions
 GitHub Actions playground.
