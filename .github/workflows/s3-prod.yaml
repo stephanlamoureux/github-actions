@@ -3,7 +3,7 @@ name: Deploy to AWS S3 prod bucket
 on:
   pull_request:
     branches:
-      - prod
+      - main
 
 jobs:
   deploy:
