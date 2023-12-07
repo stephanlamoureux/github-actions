@@ -1,3 +1,4 @@
+---
 name: Deploy to AWS S3 prod bucket
 
 on:
@@ -20,6 +21,7 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: eu-central-1
 
+				
     - name: Deploy to S3
       run: |
         aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET }} --exclude ".git/*" --exclude ".github/*" --delete
